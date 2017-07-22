@@ -49,3 +49,25 @@ RRRR
 OOOOOOOOOOO
 OOOO
 """
+
+Scenario: Maximum 24:59:59
+When the time is "24:59:59"
+Then the clock should look like
+"""
+O
+RRRR
+RRRR
+YYRYYRYYRYY
+YYYY
+"""
+
+Scenario: Early Morning 07:01:09
+When the time is "07:01:09"
+Then the clock should look like
+"""
+O
+ROOO
+RROO
+OOOOOOOOOOO
+YOOO
+"""
