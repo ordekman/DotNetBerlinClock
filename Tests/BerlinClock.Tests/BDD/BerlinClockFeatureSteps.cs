@@ -3,7 +3,7 @@ using BerlinClock.Classes;
 using NUnit.Framework;
 using TechTalk.SpecFlow;
 
-namespace BerlinClock.BDD
+namespace BerlinClock.Tests.BDD
 {
     [Binding]
     class TheBerlinClockSteps

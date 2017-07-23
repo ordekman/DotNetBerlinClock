@@ -1,5 +1,6 @@
 ﻿using System;
 using BerlinClock.Classes;
+using BerlinClock.Factories;
 using BerlinClock.Models;
 using Moq;
 using NUnit.Framework;

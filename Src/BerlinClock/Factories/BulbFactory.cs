@@ -1,6 +1,6 @@
 ﻿using BerlinClock.Models;
 
-namespace BerlinClock
+namespace BerlinClock.Factories
 {
     /// <inheritdoc />
     public class BulbFactory: IBulbFactory

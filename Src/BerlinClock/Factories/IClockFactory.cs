@@ -1,7 +1,7 @@
 ﻿using System;
 using BerlinClock.Models;
 
-namespace BerlinClock
+namespace BerlinClock.Factories
 {
     /// <summary>
     /// Interface for creating clock objects.

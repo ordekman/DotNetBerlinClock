@@ -1,6 +1,6 @@
 ﻿using BerlinClock.Models;
 
-namespace BerlinClock
+namespace BerlinClock.Factories
 {
     /// <summary>
     /// Factory for creating <see cref="IBulb"/> instances.

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using BerlinClock.Models;
 
-namespace BerlinClock
+namespace BerlinClock.Factories
 {
     /// <inheritdoc />
     public class TimePartFactory: ITimePartFactory

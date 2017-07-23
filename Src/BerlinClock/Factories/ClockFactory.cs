@@ -1,7 +1,7 @@
 ﻿using System;
 using BerlinClock.Models;
 
-namespace BerlinClock
+namespace BerlinClock.Factories
 {
     /// <inheritdoc/>
     public class ClockFactory: IClockFactory

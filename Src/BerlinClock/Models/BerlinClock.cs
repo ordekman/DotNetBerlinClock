@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Text;
 using BerlinClock.Exceptions;
+using BerlinClock.Factories;
 
 namespace BerlinClock.Models
 {
     /// <inheritdoc/>
     public class BerlinClock: IBerlinClock
     {
-        private readonly ITimePartFactory _timePartFactory;
         private readonly ITimePart _seconds;
         private readonly ITimePart _hours;
         private readonly ITimePart _minutes;
@@ -34,11 +34,12 @@ namespace BerlinClock.Models
 
         internal BerlinClock(TimeSpan timeSpan, ITimePartFactory timePartFactory)
         {
-            _timePartFactory = timePartFactory ?? throw new ArgumentNullException(nameof(timePartFactory));
+            if (timePartFactory == null)
+                throw new ArgumentNullException(nameof(timePartFactory));
 
-            _seconds = _timePartFactory.CreateSecondsPart();
-            _hours = _timePartFactory.CreateHoursPart();
-            _minutes = _timePartFactory.CreateMinutesPart();
+            _seconds = timePartFactory.CreateSecondsPart();
+            _hours = timePartFactory.CreateHoursPart();
+            _minutes = timePartFactory.CreateMinutesPart();
 
             Initialize(timeSpan);
         }
