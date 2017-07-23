@@ -1,6 +1,7 @@
 ﻿using System;
 using BerlinClock.Classes;
 using BerlinClock.Factories;
+using BerlinClock.Factories.ModifiedClock;
 using NUnit.Framework;
 using TechTalk.SpecFlow;
 
