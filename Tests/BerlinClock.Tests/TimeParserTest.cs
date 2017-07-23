@@ -29,6 +29,9 @@ namespace BerlinClock.Tests
         [TestCase("a:00:00")]
         [TestCase("00:a:00")]
         [TestCase("00:00:a")]
+        [TestCase("-1:00:00")]
+        [TestCase("00:-1:00")]
+        [TestCase("00:00:-1")]
         public void Parse_InputTimeStringIsInvalid_ExceptionIsThrown(string input)
         {
             Assert.Throws<FormatException> (() => new TimeParser().Parse(input));

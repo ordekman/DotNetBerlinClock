@@ -6,6 +6,20 @@ namespace BerlinClock.Factories
     /// <inheritdoc/>
     public class ClockFactory: IClockFactory
     {
+        private readonly ITimePartFactory _timePartFactory;
+
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        public ClockFactory(): this(new TimePartFactory())
+        {
+        }
+
+        internal ClockFactory(ITimePartFactory timePartFactory)
+        {
+            _timePartFactory = timePartFactory ?? throw new ArgumentNullException(nameof(timePartFactory));
+        }
+
         /// <inheritdoc/>
         public IBerlinClock CreateBerlinClock(DateTime dateTime)
         {
@@ -15,7 +29,7 @@ namespace BerlinClock.Factories
         /// <inheritdoc/>
         public IBerlinClock CreateBerlinClock(TimeSpan timeSpan)
         {
-            return new Models.BerlinClock(timeSpan);
+            return new Models.BerlinClock(timeSpan, _timePartFactory);
         }
     }
 }

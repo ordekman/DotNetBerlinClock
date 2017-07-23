@@ -54,6 +54,7 @@
     <Compile Include="Factories\IBulbFactory.cs" />
     <Compile Include="Factories\IBulbRowFactory.cs" />
     <Compile Include="Factories\IClockFactory.cs" />
+    <Compile Include="Factories\ModifiedClock\ModifiedTimePartFactory.cs" />
     <Compile Include="IDrawable.cs" />
     <Compile Include="ITimeParser.cs" />
     <Compile Include="Factories\ITimePartFactory.cs" />

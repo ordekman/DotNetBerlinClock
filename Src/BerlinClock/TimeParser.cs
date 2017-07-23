@@ -11,9 +11,9 @@ namespace BerlinClock
             {
                 throw new FormatException("Incorrect time format.");
             }
-            if (Int32.TryParse(timeParts[0], out int hours) && hours < 25 &&
-                Int32.TryParse(timeParts[1], out int minutes) && minutes < 60 &&
-                Int32.TryParse(timeParts[2], out int seconds) && seconds < 60)
+            if (Int32.TryParse(timeParts[0], out int hours) && hours < 25 && hours >= 0 &&
+                Int32.TryParse(timeParts[1], out int minutes) && minutes < 60 && minutes >= 0 &&
+                Int32.TryParse(timeParts[2], out int seconds) && seconds < 60 && seconds >= 0)
             {
                 return new TimeSpan(0, hours, minutes, seconds);
             }

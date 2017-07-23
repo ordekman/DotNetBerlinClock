@@ -24,13 +24,13 @@ namespace BerlinClock.Factories
         /// <inheritdoc />
         public ITimePart CreateHoursPart()
         {
-            return new TimePart(0, 24, new List<IBulbRow> {_bulbRowFactory.CreateHoursFirstRow(), _bulbRowFactory.CreateHoursSecondRow()});
+            return new TimePart(0, 24, new List<IBulbRow> {_bulbRowFactory.CreateAllRedBulbRow(4, 5), _bulbRowFactory.CreateAllRedBulbRow(4, 1)});
         }
 
         /// <inheritdoc />
         public ITimePart CreateMinutesPart()
         {
-            return new TimePart(0, 59, new List<IBulbRow> {_bulbRowFactory.CreateMinutesFirstRow(), _bulbRowFactory.CreateMinutesSecondRow()});
+            return new TimePart(0, 59, new List<IBulbRow> {_bulbRowFactory.CreateMinutesFirstRow(), _bulbRowFactory.CreateAllYellowBulbRow(4, 1)});
         }
 
         /// <inheritdoc />

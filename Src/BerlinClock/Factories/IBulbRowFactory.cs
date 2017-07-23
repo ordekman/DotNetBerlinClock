@@ -14,27 +14,26 @@ namespace BerlinClock.Factories
         IBulbRow CreateSecondsRow();
 
         /// <summary>
-        /// Creates instance of <see cref="IBulbRow"/> for first hours row.
-        /// </summary>
-        /// <returns>Instance of <see cref="IBulbRow"/> for first hours row</returns>
-        IBulbRow CreateHoursFirstRow();
-
-        /// <summary>
-        /// Creates instance of <see cref="IBulbRow"/> for second hours row.
-        /// </summary>
-        /// <returns>Instance of <see cref="IBulbRow"/> for second hours row</returns>
-        IBulbRow CreateHoursSecondRow();
-
-        /// <summary>
         /// Creates instance of <see cref="IBulbRow"/> for first minutes row.
         /// </summary>
         /// <returns>Instance of <see cref="IBulbRow"/> for first minutes row</returns>
         IBulbRow CreateMinutesFirstRow();
 
+
         /// <summary>
-        /// Creates instance of <see cref="IBulbRow"/> for second minutes row.
+        /// Creates row with red bulbs.
         /// </summary>
-        /// <returns>Instance of <see cref="IBulbRow"/> for second minutes row</returns>
-        IBulbRow CreateMinutesSecondRow();
+        /// <param name="bulbCount">Count of bulbs</param>
+        /// <param name="bulbValue">Bulb value</param>
+        /// <returns>Instance of <see cref="IBulbRow"/></returns>
+        IBulbRow CreateAllRedBulbRow(int bulbCount, int bulbValue);
+
+        /// <summary>
+        /// Creates row with yellow bulbs.
+        /// </summary>
+        /// <param name="bulbCount">Count of bulbs</param>
+        /// <param name="bulbValue">Bulb value</param>
+        /// <returns>Instance of <see cref="IBulbRow"/></returns>
+        IBulbRow CreateAllYellowBulbRow(int bulbCount, int bulbValue);
     }
 }

@@ -56,6 +56,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BDD\ModifiedBerlinClockFeatureSteps.feature.cs">
+      <DependentUpon>ModifiedBerlinClockFeatureSteps.feature</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="BDD\BerlinClockFeatureSteps.cs" />
     <Compile Include="BDD\BerlinClockFeatureSteps.feature.cs">
       <DependentUpon>BerlinClockFeatureSteps.feature</DependentUpon>
@@ -73,6 +78,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="BDD\ModifiedBerlinClockFeatureSteps.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>ModifiedBerlinClockFeatureSteps.feature.cs</LastGenOutput>
+    </None>
     <None Include="BDD\BerlinClockFeatureSteps.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>BerlinClockFeatureSteps.feature.cs</LastGenOutput>

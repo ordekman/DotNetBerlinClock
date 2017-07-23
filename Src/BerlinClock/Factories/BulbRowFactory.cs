@@ -28,25 +28,25 @@ namespace BerlinClock.Factories
         }
 
         /// <inheritdoc/>
-        public IBulbRow CreateHoursFirstRow()
+        public IBulbRow CreateAllRedBulbRow(int bulbCount, int bulbValue)
         {
             var bulbs = new List<IBulb>();
-            for (int i = 0; i < 4; i++)
+            for (int i = 0; i < bulbCount; i++)
             {
                 bulbs.Add(_bulbFactory.CreateRedBulb());
             }
-            return new BulbRow(bulbs, 5);
+            return new BulbRow(bulbs, bulbValue);
         }
 
         /// <inheritdoc/>
-        public IBulbRow CreateHoursSecondRow()
+        public IBulbRow CreateAllYellowBulbRow(int bulbCount, int bulbValue)
         {
             var bulbs = new List<IBulb>();
-            for (int i = 0; i < 4; i++)
+            for (int i = 0; i < bulbCount; i++)
             {
-                bulbs.Add(_bulbFactory.CreateRedBulb());
+                bulbs.Add(_bulbFactory.CreateYellowBulb());
             }
-            return new BulbRow(bulbs, 1);
+            return new BulbRow(bulbs, bulbValue);
         }
 
         /// <inheritdoc/>
@@ -65,17 +65,6 @@ namespace BerlinClock.Factories
                 }
             }
             return new BulbRow(bulbs, 5);
-        }
-
-        /// <inheritdoc/>
-        public IBulbRow CreateMinutesSecondRow()
-        {
-            var bulbs = new List<IBulb>();
-            for (int i = 0; i < 4; i++)
-            {
-                bulbs.Add(_bulbFactory.CreateYellowBulb());
-            }
-            return new BulbRow(bulbs, 1);
         }
     }
 }
