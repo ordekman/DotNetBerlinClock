@@ -55,9 +55,10 @@ namespace BerlinClock.Tests
             return timePart.Draw();
         }
 
+        [Test]
         public void Draw_PartConstainsNoRow_EmptyStringIsDrawn()
         {
-            var timePart = new TimePart(1, 1000, new List<IBulbRow> {PrepareBulbRow(1).Object});
+            var timePart = new TimePart(1, 1000, Enumerable.Empty<IBulbRow>());
             Assert.AreEqual("", timePart.Draw());
         }
 

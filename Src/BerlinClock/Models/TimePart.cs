@@ -45,6 +45,11 @@ namespace BerlinClock.Models
         /// <inheritdoc />
         public string Draw()
         {
+            if (!_rows.Any())
+            {
+                return string.Empty;
+            }
+
             var builder = new StringBuilder();
             var last = _rows.Last();
             foreach (var bulbRow in _rows)

@@ -159,6 +159,51 @@ testRunner.Then("the clock should look like", "O\r\nROOO\r\nRROO\r\nOOOOOOOOOOO\
 #line hidden
             this.ScenarioCleanup();
         }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Format Exception #1")]
+        public virtual void FormatException1()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Format Exception #1", ((string[])(null)));
+#line 75
+this.ScenarioSetup(scenarioInfo);
+#line 76
+testRunner.When("the time is \"\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 77
+testRunner.Then("the format exception should be thrown", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Format Exception #2")]
+        public virtual void FormatException2()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Format Exception #2", ((string[])(null)));
+#line 79
+this.ScenarioSetup(scenarioInfo);
+#line 80
+testRunner.When("the time is \"25:00:00\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 81
+testRunner.Then("the format exception should be thrown", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Format Exception #3")]
+        public virtual void FormatException3()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Format Exception #3", ((string[])(null)));
+#line 83
+this.ScenarioSetup(scenarioInfo);
+#line 84
+testRunner.When("the time is \"24:60:00\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 85
+testRunner.Then("the format exception should be thrown", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
     }
 }
 #pragma warning restore

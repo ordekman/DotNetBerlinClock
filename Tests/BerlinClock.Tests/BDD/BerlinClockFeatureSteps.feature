@@ -71,3 +71,15 @@ RROO
 OOOOOOOOOOO
 YOOO
 """
+
+Scenario: Format Exception #1
+When the time is ""
+Then the format exception should be thrown
+
+Scenario: Format Exception #2
+When the time is "25:00:00"
+Then the format exception should be thrown
+
+Scenario: Format Exception #3
+When the time is "24:60:00"
+Then the format exception should be thrown

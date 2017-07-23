@@ -24,5 +24,10 @@ namespace BerlinClock.Tests.BDD
             Assert.AreEqual(theExpectedBerlinClockOutput, _berlinClock.ConvertTime(_theTime));
         }
 
+        [Then(@"the format exception should be thrown")]
+        public void ThenTheFormatExceptionShouldBeThrown()
+        {
+            Assert.Throws<FormatException>(() => _berlinClock.ConvertTime(_theTime));
+        }
     }
 }
