@@ -1,34 +1,47 @@
-# The Berlin Clock
+# The Berlin Clock - Solution Notes
 
-The Berlin Uhr (Clock) is a rather strange way to show the time. On the top of the clock there is a yellow lamp that
-blinks on/off every two seconds. The time is calculated by adding rectangular lamps.
- 
-The top two rows of lamps are red. These indicate the hours of a day. In the top row there are 4 red lamps. Every lamp
-represents 5 hours. In the lower row of red lamps every lamp represents 1 hour. So if two lamps of the first row and
-three of the second row are switched on that indicates 5+5+3=13h or 1 pm.
- 
-The two rows of lamps at the bottom count the minutes. The first of these rows has 11 lamps, the second 4. In the
-first row every lamp represents 5 minutes. In this first row the 3rd, 6th and 9th lamp are red and indicate the first
-quarter, half and last quarter of an hour. The other lamps are yellow. In the last row with 4 lamps every lamp
-represents 1 minute.
+Dear reviewer, 
 
-One can be seen [here](http://uniqueclocks.co.uk/media/berlin~clock.jpg~1.gif)
+I would like to briefly describe solution notes and issues I have during development. Even through code is simple to understand, please go throug this text in order to better understanding of my ideas. It also might be a feedback for you.
 
-## The brief
+### Build requirements
 
-We have created a number of acceptance tests for the Berlin Clock and your challenge is to get them passing.
+C# 7.0 features are used thus Visual Studio 2017 is must have for sucessful build. I was told it's fine even through solution was originally created in VS 2013.
 
-## Some hints
-ensure that your machine has visual studio (we used 2013), and the following 2 extensions: 1) Nuget 2) 'specflow for visual studio 2013' (or appropriate). These can be installed under menu tools, Extensions and updates.	
+### Solution description
 
-The exercise contains an un-implemented Specflow BDD test (see http://www.specflow.org/getting-started/). The use of BDD in this instance is to provide you with our definition of done for the task.
+Solution is quite generic and each component has its own responsibility. Factories are responsible for creating correct component objects. It's all about settings.
 
-Please ensure that you are familiar with our values in the instructions project.  They are important to us.
+Code is IoC and DI ready (currently it's not used)
 
-* simple, elegant code that reads like a narrative
-* thinking about the code more than the writing of the code (we spend a lot of time thinking/debating about what we are writing)
-* transparency and feedback to support continuous learning
-* excellent testing that acts as documentation for the code
-* challenging boundaries where necessary
+### Testing
+
+There is project only for testing purpose BerlinClock.Tests. It's goood to separate test and product code, because we don't want to ship testing code and test dependencies to production.
+I consider unit testing as essential thing during development so code is really good testable and currently there is more than 130 unit tests (lot are generated).
+
+### Limitations and known issues
+
+This implementation is not the best solution from performance point of view (especially memory consuming). BerlinClockModel uses Bulb objects for each row (24 bulb instances) even through it's not necessary, because we know that if 6th bulb is on (in first minutes bulb row), first 5 bulbs are on as well. On the other hand, we can benefit from generality of this solution. BulbRow object just turns on bulbs and it doesn't care whether it's red or yellow. Since this is excercise, I've decided to go with generic and elegant solution, which correspondents to a realistic BerlinClock model. As a demonstration of generality of this solution, I created Modified Berlin clock, which is described at the end of this file.
+
+My model is able to display time 24:59:59, which is not valid time from real life point of view, but real BerlinClock is able to display this time as well. I decieded to allow this, when I saw test case 24:00:00 (Which is also invalid).
+
+### Modified BerlinClock
+
+Original BerlinClock model loses information about seconds. We can only read, whether seconds count is even or odd. Solution contains BDD tests and implementation (all is just about settings) of Modiefied BerlinClock model, which works in following way:
+
+* Seconds part consists of 3 rows
+* First row has 2 bulbs and each has value of 20
+* Second row has 3 bulbs and each has value of 5
+* Third row has 4 bulbs and each has value of 1
+
+YO<br/>
+YYO<br/>
+YYYY
+
+means 20 + 5 + 5 + 4 = 34 seconds.
+
+All other parts (hours and minutes) are the same as in original BerlinClock.
+
+<b>I hope you will appreciate my solution at least as much as I enjoyed the problem solving.</b>
 
 

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using BerlinClock.Models;
 
-namespace BerlinClock.Factories
+namespace BerlinClock.Factories.ModifiedClock
 {
     /// <summary>
     /// Factory for creating rows for Modified BerlinClock.
